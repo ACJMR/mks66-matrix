@@ -43,16 +43,21 @@ def ident( matrix ):
                 matrix[c][r] = 0
             r+=1
         c+=1
-
     pass
 
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
+    m = len(m1)
+    n = len(m1[0])
+    p = len(m2[0])
+    for c in range(m):
+        for d in range(n)
     pass
 
-
-
+def dot(v1,v2):
+    
+    
 
 def new_matrix(rows = 4, cols = 4):
     m = []
