@@ -12,27 +12,28 @@ import math
 #print the matrix such that it looks like
 #the template in the top comment
 def print_matrix( matrix ):
-    row0,row1,row2,row3 = "","","",""
-    for x in matrix:
-        row0 += str(x[0]) + " "
-    for x in matrix:
-        row1 += str(x[1]) + " "
-    for x in matrix:
-        row2 += str(x[2]) + " "
-    for x in matrix:
-        row3 += str(x[3]) + " "
-    print(row0)
-    print(row1)
-    print(row2)
-    print(row3)
-    print("")
+    length = len(matrix[0])
+    r = 0
+    while r < length:
+        print_row(matrix,r)
+        r+=1
+    print("\n")
+    pass
+
+def print_row(matrix,r):
+    length = len(matrix)
+    c = 0
+    row = ""
+    while c < length:
+        row += str(matrix[c][r]) + " "
+        c+=1
+    print(row)
     pass
 
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
 def ident( matrix ):
     c = 0
-    r = 0
     length = len(matrix)
     while c < length:
         r = 0
@@ -48,16 +49,23 @@ def ident( matrix ):
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    m = len(m1)
-    n = len(m1[0])
-    p = len(m2[0])
-    for c in range(m):
-        for d in range(n)
+    length = len(m2)
+    c = 0
+
+    while c < length:
+        r = 0
+        m2temp = [m2[c][0], m2[c][1], m2[c][2], m2[c][3]]
+        #print(m2temp)
+
+        while r < 4:
+            m2[c][r] = dot(m1,m2temp,r)
+            r+=1
+        c+=1
     pass
 
-def dot(v1,v2):
-    
-    
+def dot(v1,v2,n): # n is which row of the 4x4 matrix we are on
+    return v1[0][n]*v2[0] + v1[1][n]*v2[1] + v1[2][n]*v2[2] + v1[3][n]*v2[3]
+
 
 def new_matrix(rows = 4, cols = 4):
     m = []
